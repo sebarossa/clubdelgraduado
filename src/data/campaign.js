@@ -94,32 +94,53 @@ export const consejoDirectivo = [
   { n: 10, name: "Christian Barindelli",              spec: "Industrial",  foto: "/assets/fotos/directivo-11.jpg" },
 ];
 
-// ----- Consejos Departamentales (3 titulares + 3 suplentes) -----
-const ph = () => [
-  { n: 1, name: "Candidato/a por definir", note: "" },
-  { n: 2, name: "Candidato/a por definir", note: "" },
-  { n: 3, name: "Candidato/a por definir", note: "" },
-];
-
-const dept = (id, nombre, corto) => ({
-  id,
-  nombre,
-  corto,
-  titulares: ph().map((p) => ({ ...p, note: "Titular" })),
-  suplentes: ph().map((p) => ({ ...p, note: "Suplente" })),
+// ----- Consejos Departamentales (2 titulares + 2 suplentes) -----
+const dept = (id, nombre, corto, titulares, suplentes) => ({
+  id, nombre, corto,
+  titulares: titulares.map((name, i) => ({ n: i + 1, name, note: "Titular" })),
+  suplentes: suplentes.map((name, i) => ({ n: i + 1, name, note: "Suplente" })),
 });
 
 export const departamentos = [
-  dept("civil",       "Ingeniería Civil",                       "Civil"),
-  dept("electrica",   "Ingeniería en Energía Eléctrica",        "Eléctrica"),
-  dept("electronica", "Ingeniería Electrónica",                 "Electrónica"),
-  dept("industrial",  "Ingeniería Industrial",                  "Industrial"),
-  dept("mecanica",    "Ingeniería Mecánica",                    "Mecánica"),
-  dept("naval",       "Ingeniería Naval",                       "Naval"),
-  dept("quimica",     "Ingeniería Química",                     "Química"),
-  dept("sistemas",    "Ingeniería en Sistemas de Información",  "Sistemas"),
-  dept("textil",      "Ingeniería Textil",                      "Textil"),
-  dept("basicas",     "Ciencias Básicas",                       "C. Básicas"),
+  dept("civil", "Ingeniería Civil", "Civil",
+    ["Ángel Gabriel Cano", "María Delfina Lopez Azcurra"],
+    ["Axel Ignacio Colantuono", "Juan José Burza"]),
+
+  dept("electrica", "Ingeniería en Energía Eléctrica", "Eléctrica",
+    ["Luciano Ariel Herrera", "Joaquín Quispe"],
+    ["Damián Alberto Daneri", "Ricardo Alejandro Pauro"]),
+
+  dept("electronica", "Ingeniería Electrónica", "Electrónica",
+    ["María Fernanda Locarnini", "Horacio Espino"],
+    ["Nicolás Pablo Campitelli", "Daniel Pedro Pulera"]),
+
+  dept("industrial", "Ingeniería Industrial", "Industrial",
+    ["Agustina Calderón", "Mariano Sebastián Giusto"],
+    ["Julieta Ursino", "Walter Hugo Posse"]),
+
+  dept("mecanica", "Ingeniería Mecánica", "Mecánica",
+    ["Fernando Ariel Vidal", "Ayelén Daiana Merodo"],
+    ["Ioannis Manuel Rubio", "Sergio Daniel Salomone"]),
+
+  dept("naval", "Ingeniería Naval", "Naval",
+    ["Juan Pablo Governatori", "Raúl Mario Ramis"],
+    ["Lucas Nahuel Garcia", "Fernando Raúl Ladino"]),
+
+  dept("quimica", "Ingeniería Química", "Química",
+    ["Rosa María Sánchez", "María Eugenia Valenzuela"],
+    ["Gabriela Fabiana Miguelez", "Marcela Sandra De Luca"]),
+
+  dept("sistemas", "Ingeniería en Sistemas de Información", "Sistemas",
+    ["Paula Romina Franzo", "Juan José D'Alessandro"],
+    ["Silvina Laura Gonzalez Lucas", "Marcos Alberto Della Pittima"]),
+
+  dept("textil", "Ingeniería Textil", "Textil",
+    ["Gonzalo Tomás Pulka", "Soledad Elena Conde Chuquimia"],
+    ["Esteban Emmanuel Agostinelli", "Valentina Celeste Dieleke"]),
+
+  dept("basicas", "Ciencias Básicas", "C. Básicas",
+    ["Andrea Carina Mangone", "Jorge Eduardo Podesta"],
+    ["Alejandro Gabriel Scomparin", "María Laura Orfano"]),
 ];
 
 // ----- Consejo Superior — Integración Graduados (lista nacional) -----
