@@ -14,7 +14,12 @@ import { consejoSuperior } from "../data/campaign.js";
   <Topbar
     logoSrc="/assets/logo-integracion.jpeg"
     brandText="Integración Graduados"
-    hideLinks={true}
+    links={[
+      { href: "/#propuestas",      label: "Propuestas" },
+      { href: "/#directivo",       label: "Consejo Directivo" },
+      { href: "/#departamentales", label: "Departamentales" },
+      { href: "/consejo-superior", label: "Consejo Superior" },
+    ]}
   />
 
   <!-- HERO -->
