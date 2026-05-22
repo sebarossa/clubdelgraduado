@@ -95,28 +95,32 @@ export const consejoDirectivo = [
 ];
 
 // ----- Consejos Departamentales (2 titulares + 2 suplentes) -----
-const dept = (id, nombre, corto, titulares, suplentes) => ({
+const dept = (id, nombre, corto, titulares, suplentes, fotos = []) => ({
   id, nombre, corto,
-  titulares: titulares.map((name, i) => ({ n: i + 1, name, note: "Titular" })),
-  suplentes: suplentes.map((name, i) => ({ n: i + 1, name, note: "Suplente" })),
+  titulares: titulares.map((name, i) => ({ n: i + 1, name, note: "Titular", foto: fotos[i] || null })),
+  suplentes: suplentes.map((name, i) => ({ n: i + 1, name, note: "Suplente", foto: fotos[i + 2] || null })),
 });
 
 export const departamentos = [
   dept("civil", "Ingeniería Civil", "Civil",
     ["Ángel Gabriel Cano", "María Delfina Lopez Azcurra"],
-    ["Axel Ignacio Colantuono", "Juan José Burza"]),
+    ["Axel Ignacio Colantuono", "Juan José Burza"],
+    ["/assets/fotos/civil-01.jpg", "/assets/fotos/civil-02.jpg", "/assets/fotos/civil-03.jpg", "/assets/fotos/civil-04.jpg"]),
 
   dept("electrica", "Ingeniería en Energía Eléctrica", "Eléctrica",
     ["Luciano Ariel Herrera", "Joaquín Quispe"],
-    ["Damián Alberto Daneri", "Ricardo Alejandro Pauro"]),
+    ["Damián Alberto Daneri", "Ricardo Alejandro Pauro"],
+    ["/assets/fotos/electrica-01.jpg", "/assets/fotos/electrica-02.jpg", "/assets/fotos/electrica-03.jpg", "/assets/fotos/electrica-04.jpg"]),
 
   dept("electronica", "Ingeniería Electrónica", "Electrónica",
     ["María Fernanda Locarnini", "Horacio Espino"],
-    ["Nicolás Pablo Campitelli", "Daniel Pedro Pulera"]),
+    ["Nicolás Pablo Campitelli", "Daniel Pedro Pulera"],
+    ["/assets/fotos/electronica-01.jpg", "/assets/fotos/electronica-02.jpg", "/assets/fotos/electronica-03.jpg", "/assets/fotos/electronica-04.jpg"]),
 
   dept("industrial", "Ingeniería Industrial", "Industrial",
     ["Agustina Calderón", "Mariano Sebastián Giusto"],
-    ["Julieta Ursino", "Walter Hugo Posse"]),
+    ["Julieta Ursino", "Walter Hugo Posse"],
+    ["/assets/fotos/industrial-01.jpg", "/assets/fotos/industrial-02.jpg", "/assets/fotos/industrial-03.jpg", "/assets/fotos/industrial-04.jpg"]),
 
   dept("mecanica", "Ingeniería Mecánica", "Mecánica",
     ["Fernando Ariel Vidal", "Ayelén Daiana Merodo"],
@@ -140,7 +144,8 @@ export const departamentos = [
 
   dept("basicas", "Ciencias Básicas", "C. Básicas",
     ["Andrea Carina Mangone", "Jorge Eduardo Podesta"],
-    ["Alejandro Gabriel Scomparin", "María Laura Orfano"]),
+    ["Alejandro Gabriel Scomparin", "María Laura Orfano"],
+    ["/assets/fotos/basicas-01.jpg", "/assets/fotos/basicas-02.jpg", "/assets/fotos/basicas-03.jpg", "/assets/fotos/basicas-04.jpg"]),
 ];
 
 // ----- Consejo Superior — Integración Graduados (lista nacional) -----

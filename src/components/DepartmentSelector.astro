@@ -17,30 +17,32 @@ import { departamentos } from "../data/campaign.js";
     ))}
   </div>
 
-  {departamentos.map((d, i) => (
-    <div class="dept-panel" data-dept-panel={d.id} hidden={i !== 0}>
-      <header class="dept-panel__header">
-        <h3 class="dept-panel__title">
-          <span class="script">Departamento</span>
-          {d.nombre}
-        </h3>
-      </header>
+  {departamentos.map((d, i) => {
+    const todos = [...d.titulares, ...d.suplentes];
+    return (
+      <div class="dept-panel" data-dept-panel={d.id} hidden={i !== 0}>
+        <header class="dept-panel__header">
+          <h3 class="dept-panel__title">
+            <span class="script">Departamento</span>
+            {d.nombre}
+          </h3>
+        </header>
 
-      <ul class="roster-list">
-        {[...d.titulares, ...d.suplentes].map((p, idx) => (
-          <li class="roster-row">
-            <div class="roster-row__num">{idx + 1}</div>
-            <div class="roster-row__avatar">
-              <Silhouette tone={idx < 3 ? "violet" : "orange"} className="" />
-            </div>
-            <div>
-              <div class="roster-row__name">{p.name}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  ))}
+        <div class="photo-grid">
+          {todos.map((p) => (
+            p.foto
+              ? <img class="photo-grid__img" src={p.foto} alt={p.name} loading="lazy" />
+              : <div class="photo-grid__placeholder">
+                  <div class="photo-grid__placeholder-avatar">
+                    <Silhouette tone="violet" className="card__silhouette" />
+                  </div>
+                  <span class="photo-grid__pending-name">{p.name}</span>
+                </div>
+          ))}
+        </div>
+      </div>
+    );
+  })}
 </div>
 
 <script>

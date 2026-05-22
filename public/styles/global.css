@@ -1047,6 +1047,14 @@ button {
   justify-content: center;
 }
 
+.roster-row__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
 .roster-row__avatar svg { width: 80%; height: 90%; }
 
 .roster-row__name {
@@ -1374,4 +1382,43 @@ button {
   .photo-grid__img {
     width: 100%;
   }
+}
+
+.photo-grid__placeholder {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .photo-grid__placeholder {
+    width: 100%;
+  }
+}
+
+.photo-grid__placeholder-avatar {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(180deg, var(--cream-2) 0%, var(--cream) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-grid__placeholder-avatar .card__silhouette {
+  width: 48%;
+  height: 90%;
+}
+
+.photo-grid__pending-name {
+  padding: 10px 10px 14px;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 19px;
+  color: var(--violet);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
 }
