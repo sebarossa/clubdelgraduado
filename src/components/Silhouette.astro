@@ -1,0 +1,22 @@
+---
+interface Props {
+  tone?: "violet" | "orange" | "magenta" | "deep";
+  className?: string;
+}
+const { tone = "violet", className = "card__silhouette" } = Astro.props;
+
+const tones = {
+  violet:  { body: "#5c30a3", shade: "#3d1c75", hair: "#2a1452" },
+  orange:  { body: "#fe731d", shade: "#c95a14", hair: "#8e3e0c" },
+  magenta: { body: "#aa0284", shade: "#7b005f", hair: "#560042" },
+  deep:    { body: "#3d1c75", shade: "#2a1452", hair: "#1a0a3a" },
+};
+const t = tones[tone];
+---
+<svg viewBox="0 0 100 120" preserveAspectRatio="xMidYMax meet" class={className} xmlns="http://www.w3.org/2000/svg">
+  <path d="M 8 120 C 8 88, 30 76, 50 76 C 70 76, 92 88, 92 120 Z" fill={t.body}></path>
+  <rect x="42" y="60" width="16" height="22" rx="3" fill={t.shade}></rect>
+  <ellipse cx="50" cy="44" rx="22" ry="26" fill={t.shade}></ellipse>
+  <path d="M 28 38 C 28 22, 42 14, 50 14 C 60 14, 72 22, 72 38 C 72 32, 64 28, 50 28 C 36 28, 28 32, 28 38 Z" fill={t.hair}></path>
+  <ellipse cx="60" cy="40" rx="4" ry="6" fill={t.body} opacity="0.5"></ellipse>
+</svg>

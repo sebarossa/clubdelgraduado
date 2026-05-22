@@ -1,0 +1,31 @@
+---
+interface Props {
+  logoSrc: string;
+  logoAlt: string;
+  href: string;
+  kicker: string;
+  titleMain: string;
+  titleScript: string;
+  desc: string;
+  cta: string;
+}
+const { logoSrc, logoAlt, href, kicker, titleMain, titleScript, desc, cta } = Astro.props;
+---
+<div class="super-cta">
+  <div class="super-cta__content">
+    <div class="super-cta__kicker">{kicker}</div>
+    <h3 class="super-cta__title">
+      <span class="script">{titleScript}</span> {titleMain}
+    </h3>
+    <p class="super-cta__desc">{desc}</p>
+    <a class="super-cta__btn" href={href}>
+      {cta}
+      <span class="arrow">→</span>
+    </a>
+  </div>
+  <div class="super-cta__visual">
+    <div class="super-cta__logo">
+      <img src={logoSrc} alt={logoAlt} />
+    </div>
+  </div>
+</div>

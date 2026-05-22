@@ -1,0 +1,137 @@
+// ============================================================
+// Datos de campaña — Club del Graduado / Integración Graduados
+// UTN FRBA · Elecciones 2026 · 2-jun-2026
+// ============================================================
+
+export const ELECTION_DATE = "2026-06-02T08:00:00-03:00";
+
+// ----- Propuestas (5 ejes, idénticos para todos los consejos) -----
+export const propuestas = [
+  {
+    n: "01",
+    color: "violet",
+    title: "Formación continua",
+    short:
+      "Acompañar a graduados y graduadas durante toda su vida profesional con capacitaciones, posgrados y beneficios.",
+    details: [
+      "Programas en IA, Industria 4.0, transformación digital, BIM y gestión de proyectos.",
+      "Capacitaciones específicas por especialidad de ingeniería y carreras tecnológicas.",
+      "Convenios y beneficios en posgrados, especializaciones, certificaciones, idiomas y software técnico.",
+      "Bolsa de trabajo federal UTN para fortalecer la inserción laboral.",
+      "Mentorías, networking y encuentros técnico-profesionales.",
+    ],
+  },
+  {
+    n: "02",
+    color: "orange",
+    title: "Comunidad y red federal",
+    short:
+      "Construir una verdadera comunidad de graduados/as UTN con sentido de pertenencia y vínculo federal.",
+    details: [
+      "Vinculación entre graduados/as de todas las Facultades Regionales.",
+      "Espacios de participación y escucha activa del claustro.",
+      "Actividades académicas, profesionales y sociales con la Universidad.",
+      "Red federal de intercambio de experiencias y oportunidades.",
+      "Mentorías entre graduados/as con experiencia y jóvenes profesionales.",
+    ],
+  },
+  {
+    n: "03",
+    color: "default",
+    title: "Ciencia, tecnología e innovación",
+    short:
+      "Una UTN protagonista del desarrollo tecnológico, productivo y de la soberanía tecnológica del país.",
+    details: [
+      "Participación de graduados/as en proyectos de desarrollo tecnológico y social (PDTS).",
+      "Vinculación Universidad — sector productivo — organismos científico-técnicos.",
+      "Defensa del sistema científico-tecnológico nacional.",
+      "Innovación, investigación y transferencia tecnológica con graduados/as.",
+      "Difusión y debate sobre el impacto territorial de la ingeniería.",
+    ],
+  },
+  {
+    n: "04",
+    color: "magenta",
+    title: "Universidad pública y transparente",
+    short:
+      "Gobierno universitario participativo, federal, plural y con renovación democrática.",
+    details: [
+      "Defensa de la educación pública, gratuita y de excelencia.",
+      "Gestión transparente y participativa en todos los ámbitos.",
+      "Participación directa de graduados y graduadas.",
+      "Modernización institucional y transparencia en el uso de recursos.",
+      "Reforma integral del Estatuto Universitario.",
+      "Límites a las reelecciones indefinidas.",
+    ],
+  },
+  {
+    n: "05",
+    color: "default",
+    title: "Inclusión y accesibilidad",
+    short:
+      "Una Universidad más inclusiva, accesible y comprometida con los derechos humanos.",
+    details: [
+      "Políticas institucionales de inclusión y accesibilidad.",
+      "Igualdad de oportunidades para graduados y graduadas.",
+      "Ambientes académicos y laborales libres de violencia y discriminación.",
+      "Cumplimiento de normativas de accesibilidad y discapacidad.",
+      "Perspectiva de género y accesibilidad en las políticas universitarias.",
+    ],
+  },
+];
+
+// ----- Consejo Directivo FRBA -----
+export const consejoDirectivo = [
+  { n: 1,  name: "Débora García Cuniglio",            spec: "Sistemas",   foto: "/assets/fotos/directivo-02.jpg" },
+  { n: 2,  name: "Marcos Della Pittima",              spec: "Sistemas",   foto: "/assets/fotos/directivo-03.jpg" },
+  { n: 3,  name: "Marcela Adriana Saldivia",          spec: "Textil",     foto: "/assets/fotos/directivo-04.jpg" },
+  { n: 4,  name: "Mónica Scardigli",                  spec: "Posgrado",   foto: "/assets/fotos/directivo-05.jpg" },
+  { n: 5,  name: "Tomás Uriel De Bella Abreu Gozzi",  spec: "Industrial", foto: "/assets/fotos/directivo-06.jpg" },
+  { n: 6,  name: "Silvio Bressan",                    spec: "Civil",      foto: "/assets/fotos/directivo-07.jpg" },
+  { n: 7,  name: "Valeria Espíndola",                 spec: "Sistemas",   foto: "/assets/fotos/directivo-08.jpg" },
+  { n: 8,  name: "José Luis Rodríguez Lamas",         spec: "Eléctrica",  foto: "/assets/fotos/directivo-09.jpg" },
+  { n: 9,  name: "María del Carmen Gutiérrez",        spec: "Química",    foto: "/assets/fotos/directivo-10.jpg" },
+  { n: 10, name: "Christian Barindelli",              spec: "Industrial",  foto: "/assets/fotos/directivo-11.jpg" },
+];
+
+// ----- Consejos Departamentales (3 titulares + 3 suplentes) -----
+const ph = () => [
+  { n: 1, name: "Candidato/a por definir", note: "" },
+  { n: 2, name: "Candidato/a por definir", note: "" },
+  { n: 3, name: "Candidato/a por definir", note: "" },
+];
+
+const dept = (id, nombre, corto) => ({
+  id,
+  nombre,
+  corto,
+  titulares: ph().map((p) => ({ ...p, note: "Titular" })),
+  suplentes: ph().map((p) => ({ ...p, note: "Suplente" })),
+});
+
+export const departamentos = [
+  dept("civil",       "Ingeniería Civil",                       "Civil"),
+  dept("electrica",   "Ingeniería en Energía Eléctrica",        "Eléctrica"),
+  dept("electronica", "Ingeniería Electrónica",                 "Electrónica"),
+  dept("industrial",  "Ingeniería Industrial",                  "Industrial"),
+  dept("mecanica",    "Ingeniería Mecánica",                    "Mecánica"),
+  dept("naval",       "Ingeniería Naval",                       "Naval"),
+  dept("quimica",     "Ingeniería Química",                     "Química"),
+  dept("sistemas",    "Ingeniería en Sistemas de Información",  "Sistemas"),
+  dept("textil",      "Ingeniería Textil",                      "Textil"),
+  dept("basicas",     "Ciencias Básicas",                       "C. Básicas"),
+];
+
+// ----- Consejo Superior — Integración Graduados (lista nacional) -----
+export const consejoSuperior = [
+  { n: 1,  name: "Ladino",         spec: "Ing. Naval",                                            city: "Buenos Aires" },
+  { n: 2,  name: "Sartor",         spec: "Ing. en Construcciones · Magíster en Gestión Ambiental", city: "Bahía Blanca" },
+  { n: 3,  name: "Molina",         spec: "Ing. Eléctrica",                                        city: "Tucumán" },
+  { n: 4,  name: "Zamboni",        spec: "Ing. Civil",                                            city: "Paraná" },
+  { n: 5,  name: "Liberal",        spec: "Sistemas de Información",                               city: "Mendoza" },
+  { n: 6,  name: "Gogniat",        spec: "Ing. Naval",                                            city: "Mar del Plata" },
+  { n: 7,  name: "Vallejos",       spec: "Ing. Industrial",                                       city: "Pacheco" },
+  { n: 8,  name: "Patricia López", spec: "Ing. en Construcciones",                                city: "Paraná" },
+  { n: 9,  name: "Iznardo",        spec: "Ing. en Sistemas",                                      city: "Resistencia" },
+  { n: 10, name: "Martínez",       spec: "Ing. Industrial",                                       city: "San Rafael" },
+];

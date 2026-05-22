@@ -1,0 +1,65 @@
+---
+import Silhouette from "./Silhouette.astro";
+import { departamentos } from "../data/campaign.js";
+---
+<div data-dept-selector>
+  <div class="dept-bar" role="tablist">
+    {departamentos.map((d, i) => (
+      <button
+        class:list={["dept-tab", { active: i === 0 }]}
+        data-dept-tab={d.id}
+        role="tab"
+        aria-selected={i === 0 ? "true" : "false"}
+        type="button"
+      >
+        {d.corto}
+      </button>
+    ))}
+  </div>
+
+  {departamentos.map((d, i) => (
+    <div class="dept-panel" data-dept-panel={d.id} hidden={i !== 0}>
+      <header class="dept-panel__header">
+        <h3 class="dept-panel__title">
+          <span class="script">Departamento</span>
+          {d.nombre}
+        </h3>
+      </header>
+
+      <ul class="roster-list">
+        {[...d.titulares, ...d.suplentes].map((p, idx) => (
+          <li class="roster-row">
+            <div class="roster-row__num">{idx + 1}</div>
+            <div class="roster-row__avatar">
+              <Silhouette tone={idx < 3 ? "violet" : "orange"} className="" />
+            </div>
+            <div>
+              <div class="roster-row__name">{p.name}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-dept-selector]").forEach((root) => {
+    const tabs   = root.querySelectorAll<HTMLButtonElement>("[data-dept-tab]");
+    const panels = root.querySelectorAll<HTMLElement>("[data-dept-panel]");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const id = tab.dataset.deptTab;
+        tabs.forEach((t) => {
+          const active = t === tab;
+          t.classList.toggle("active", active);
+          t.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        panels.forEach((p) => {
+          p.hidden = p.dataset.deptPanel !== id;
+        });
+      });
+    });
+  });
+</script>

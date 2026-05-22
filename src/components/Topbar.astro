@@ -1,0 +1,76 @@
+---
+interface Link { href: string; label: string; }
+
+interface Props {
+  logoSrc: string;
+  brandText: string;
+  hideLinks?: boolean;
+  links?: Link[];
+}
+
+const {
+  logoSrc,
+  brandText,
+  hideLinks = false,
+  links = [
+    { href: "#propuestas",      label: "Propuestas" },
+    { href: "#directivo",       label: "Consejo Directivo" },
+    { href: "#departamentales", label: "Departamentales" },
+    { href: "/consejo-superior", label: "Consejo Superior" },
+  ],
+} = Astro.props;
+---
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="topbar__logo" href="/">
+      <img src={logoSrc} alt="Logo" />
+      <span>{brandText}</span>
+    </a>
+
+    {!hideLinks && (
+      <nav class="topbar__nav">
+        {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      </nav>
+    )}
+
+    <a class="topbar__cta" href="#sumate">Sumate</a>
+
+    <button class="topbar__menu-btn" id="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-hidden="true">
+  {!hideLinks && links.map((l) => (
+    <a href={l.href} data-mm-link>{l.label}</a>
+  ))}
+  <a class="mobile-menu__cta" href="#sumate" data-mm-link>Sumate a la campaña</a>
+</div>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    const close = () => {
+      btn.classList.remove("open");
+      menu.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      menu.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("menu-open");
+    };
+    const open = () => {
+      btn.classList.add("open");
+      menu.classList.add("open");
+      btn.setAttribute("aria-expanded", "true");
+      menu.setAttribute("aria-hidden", "false");
+      document.body.classList.add("menu-open");
+    };
+    btn.addEventListener("click", () => {
+      btn.classList.contains("open") ? close() : open();
+    });
+    menu.querySelectorAll<HTMLAnchorElement>("[data-mm-link]").forEach((a) => {
+      a.addEventListener("click", close);
+    });
+  }
+</script>

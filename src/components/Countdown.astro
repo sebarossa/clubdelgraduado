@@ -1,0 +1,53 @@
+---
+import { ELECTION_DATE } from "../data/campaign.js";
+---
+<div class="countdown" data-countdown data-target={ELECTION_DATE}>
+  <div class="countdown__label">Elecciones UTN FRBA</div>
+  <div class="countdown__date">
+    <span class="script">Martes</span> 2 de junio
+  </div>
+  <div class="countdown__grid">
+    <div class="countdown__cell">
+      <div class="countdown__num" data-unit="d">00</div>
+      <div class="countdown__unit">Días</div>
+    </div>
+    <div class="countdown__cell">
+      <div class="countdown__num" data-unit="h">00</div>
+      <div class="countdown__unit">Horas</div>
+    </div>
+    <div class="countdown__cell">
+      <div class="countdown__num" data-unit="m">00</div>
+      <div class="countdown__unit">Min</div>
+    </div>
+    <div class="countdown__cell">
+      <div class="countdown__num" data-unit="s">00</div>
+      <div class="countdown__unit">Seg</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const pad = (n: number) => String(n).padStart(2, "0");
+  document.querySelectorAll<HTMLElement>("[data-countdown]").forEach((root) => {
+    const target = new Date(root.dataset.target || "").getTime();
+    const cells = {
+      d: root.querySelector<HTMLElement>("[data-unit='d']"),
+      h: root.querySelector<HTMLElement>("[data-unit='h']"),
+      m: root.querySelector<HTMLElement>("[data-unit='m']"),
+      s: root.querySelector<HTMLElement>("[data-unit='s']"),
+    };
+    const tick = () => {
+      const diff = Math.max(0, target - Date.now());
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      if (cells.d) cells.d.textContent = pad(d);
+      if (cells.h) cells.h.textContent = pad(h);
+      if (cells.m) cells.m.textContent = pad(m);
+      if (cells.s) cells.s.textContent = pad(s);
+    };
+    tick();
+    setInterval(tick, 1000);
+  });
+</script>

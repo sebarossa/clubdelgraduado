@@ -1,0 +1,140 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Topbar from "../components/Topbar.astro";
+import Countdown from "../components/Countdown.astro";
+import PropsGrid from "../components/PropsGrid.astro";
+import DepartmentSelector from "../components/DepartmentSelector.astro";
+import SuperCTA from "../components/SuperCTA.astro";
+import Footer from "../components/Footer.astro";
+
+import { consejoDirectivo } from "../data/campaign.js";
+---
+<Layout title="Club del Graduado · UTN FRBA · Elecciones 2026">
+
+  <Topbar logoSrc="/assets/logo-club-graduado.jpeg" brandText="Club del Graduado" />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div>
+        <div class="hero__eyebrow">
+          <span class="dot"></span>
+          Elecciones UTN FRBA · 2026
+        </div>
+        <h1 class="hero__title">
+          <span class="script">por la</span>UTN<br />
+          <span class="accent">que</span> queremos
+        </h1>
+        <p class="hero__sub">
+          Una lista de graduados y graduadas comprometida con una Universidad
+          pública, federal, tecnológica y de excelencia. La voz del claustro
+          que sigue construyendo UTN después del título.
+        </p>
+        <div class="hero__meta">
+          <span class="hero__chip">Consejo Directivo</span>
+          <span class="hero__chip">10 Consejos Departamentales</span>
+          <span class="hero__chip">Consejo Superior</span>
+        </div>
+      </div>
+      <Countdown />
+    </div>
+
+    <div class="hero__ribbon">
+      <div class="hero__ribbon-inner">
+        {[0, 1].map(() => (
+          <>
+            <span>UTN pública</span><span class="star">✦</span>
+            <span>UTN federal</span><span class="star">✦</span>
+            <span>UTN tecnológica</span><span class="star">✦</span>
+            <span>UTN de excelencia</span><span class="star">✦</span>
+            <span>UTN del futuro</span><span class="star">✦</span>
+            <span>Club del Graduado</span><span class="star">✦</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPUESTAS -->
+  <section class="section" id="propuestas" data-screen-label="Propuestas">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Plataforma 2026 — 2028</div>
+          <h2 class="section__title">
+            <span class="script">Nuestras</span> propuestas
+          </h2>
+        </div>
+        <p class="section__lead">
+          Cinco ejes de trabajo para una UTN más cercana, moderna, federal,
+          transparente y conectada con el desarrollo del país. La misma
+          plataforma para Consejo Directivo, Departamentales y Superior.
+        </p>
+      </header>
+
+      <PropsGrid />
+    </div>
+  </section>
+
+  <!-- CONSEJO DIRECTIVO -->
+  <section class="section section--cream" id="directivo" data-screen-label="Consejo Directivo">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Lista FRBA</div>
+          <h2 class="section__title">
+            <span class="script">Consejo</span> Directivo
+          </h2>
+        </div>
+        <p class="section__lead">
+          Diez graduados y graduadas representando a todas las especialidades
+          de la Facultad Regional Buenos Aires en el Consejo Directivo.
+        </p>
+      </header>
+
+      <div class="photo-grid">
+        {consejoDirectivo.map((c) => (
+          <img class="photo-grid__img" src={c.foto} alt={c.name} loading="lazy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTAMENTALES -->
+  <section class="section" id="departamentales" data-screen-label="Consejos Departamentales">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Consejos Departamentales</div>
+          <h2 class="section__title">
+            <span class="script">Tu</span> departamento
+          </h2>
+        </div>
+        <p class="section__lead">
+          Elegí tu carrera para conocer a los y las candidatas titulares y suplentes
+          que van a representar a graduados/as en el Consejo Departamental.
+        </p>
+      </header>
+
+      <DepartmentSelector />
+    </div>
+  </section>
+
+  <!-- CTA CONSEJO SUPERIOR -->
+  <section class="section section--cream" id="superior" data-screen-label="CTA Consejo Superior">
+    <div class="section__inner">
+      <SuperCTA
+        logoSrc="/assets/logo-integracion.jpeg"
+        logoAlt="Integración Graduados"
+        href="/consejo-superior"
+        kicker="Lista Nacional · Consejo Superior"
+        titleScript="Conocé"
+        titleMain="Integración Graduados"
+        desc="La misma propuesta llevada al órgano de gobierno nacional. Diez candidatos de Facultades Regionales de todo el país construyendo la UTN federal del futuro."
+        cta="Ver propuestas y candidatos"
+      />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

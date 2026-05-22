@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Topbar from "../components/Topbar.astro";
+import Countdown from "../components/Countdown.astro";
+import PropsGrid from "../components/PropsGrid.astro";
+import CandidateCard from "../components/CandidateCard.astro";
+import SuperCTA from "../components/SuperCTA.astro";
+import Footer from "../components/Footer.astro";
+
+import { consejoSuperior } from "../data/campaign.js";
+---
+<Layout title="Integración Graduados · Consejo Superior UTN · Elecciones 2026">
+
+  <Topbar
+    logoSrc="/assets/logo-integracion.jpeg"
+    brandText="Integración Graduados"
+    hideLinks={true}
+  />
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__inner">
+      <div>
+        <a class="hero__chip" href="/" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+          ← Volver al Club del Graduado
+        </a>
+        <div class="hero__eyebrow" style="margin-top: 18px;">
+          <span class="dot"></span>
+          Lista Nacional · Consejo Superior UTN
+        </div>
+        <h1 class="hero__title">
+          <span class="script">Integración</span><br />
+          <span class="accent">Graduados</span>
+        </h1>
+        <p class="hero__sub">
+          Diez graduados y graduadas de Facultades Regionales de todo el país
+          llevando la misma plataforma al órgano máximo de gobierno de la
+          Universidad Tecnológica Nacional.
+        </p>
+        <div class="hero__meta">
+          <span class="hero__chip">10 candidatos federales</span>
+          <span class="hero__chip">UTN pública y federal</span>
+        </div>
+      </div>
+      <Countdown />
+    </div>
+
+    <div class="hero__ribbon">
+      <div class="hero__ribbon-inner">
+        {[0, 1].map(() => (
+          <>
+            <span>Integración Graduados</span><span class="star">✦</span>
+            <span>Una UTN federal</span><span class="star">✦</span>
+            <span>Soberanía tecnológica</span><span class="star">✦</span>
+            <span>Red de graduados/as</span><span class="star">✦</span>
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPUESTAS -->
+  <section class="section" id="propuestas" data-screen-label="Propuestas Superior">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Plataforma 2026 — 2028</div>
+          <h2 class="section__title">
+            <span class="script">La misma</span> propuesta
+          </h2>
+        </div>
+        <p class="section__lead">
+          Todos los consejos trabajan por los mismos objetivos. Cinco ejes que
+          construyen la UTN pública, federal y tecnológica del futuro.
+        </p>
+      </header>
+
+      <PropsGrid />
+    </div>
+  </section>
+
+  <!-- CANDIDATOS SUPERIOR -->
+  <section class="section section--cream" id="candidatos" data-screen-label="Candidatos Superior">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Lista Nacional</div>
+          <h2 class="section__title">
+            <span class="script">Diez voces</span> federales
+          </h2>
+        </div>
+        <p class="section__lead">
+          Una lista que representa la diversidad de la UTN: ingenieros e ingenieras
+          de distintas especialidades y regionales del país.
+        </p>
+      </header>
+
+      <div class="cards">
+        {consejoSuperior.map((c) => <CandidateCard candidate={c} showCity={true} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK CTA -->
+  <section class="section" style="padding-top: 0; padding-bottom: 64px;">
+    <div class="section__inner">
+      <SuperCTA
+        logoSrc="/assets/logo-club-graduado.jpeg"
+        logoAlt="Club del Graduado"
+        href="/"
+        kicker="Elecciones FRBA"
+        titleScript="Volvé al"
+        titleMain="Club del Graduado"
+        desc="Conocé también a los candidatos al Consejo Directivo y a los Consejos Departamentales de la Facultad Regional Buenos Aires."
+        cta="Ver elecciones FRBA"
+      />
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

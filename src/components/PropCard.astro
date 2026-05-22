@@ -1,0 +1,30 @@
+---
+interface Prop {
+  n: string;
+  color: "violet" | "orange" | "magenta" | "default";
+  title: string;
+  short: string;
+  details: string[];
+}
+interface Props { prop: Prop; }
+const { prop } = Astro.props;
+
+const colorClass =
+  prop.color === "violet"  ? "prop--violet"  :
+  prop.color === "orange"  ? "prop--orange"  :
+  prop.color === "magenta" ? "prop--magenta" : "";
+---
+<article class:list={["prop", colorClass]} data-prop>
+  <div class="prop__num">{prop.n}</div>
+  <h3 class="prop__title">{prop.title}</h3>
+  <p class="prop__desc">{prop.short}</p>
+  <button class="prop__toggle" type="button" data-prop-toggle>
+    <span data-prop-label>Ver propuestas</span>
+    <span class="arrow">↓</span>
+  </button>
+  <div class="prop__details">
+    <ul>
+      {prop.details.map((d) => <li>{d}</li>)}
+    </ul>
+  </div>
+</article>

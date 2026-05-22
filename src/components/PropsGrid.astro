@@ -1,0 +1,18 @@
+---
+import PropCard from "./PropCard.astro";
+import { propuestas } from "../data/campaign.js";
+---
+<div class="props">
+  {propuestas.map((p) => <PropCard prop={p} />)}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-prop]").forEach((card) => {
+    const btn = card.querySelector<HTMLButtonElement>("[data-prop-toggle]");
+    const label = card.querySelector<HTMLElement>("[data-prop-label]");
+    btn?.addEventListener("click", () => {
+      const open = card.classList.toggle("open");
+      if (label) label.textContent = open ? "Cerrar" : "Ver propuestas";
+    });
+  });
+</script>

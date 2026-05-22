@@ -1,0 +1,40 @@
+---
+import Silhouette from "./Silhouette.astro";
+
+interface Candidate {
+  n: number;
+  name: string;
+  spec: string;
+  city?: string;
+  foto?: string;
+}
+interface Props {
+  candidate: Candidate;
+  showCity?: boolean;
+}
+const { candidate, showCity = false } = Astro.props;
+
+const tones = ["violet", "orange", "magenta", "deep", "violet"] as const;
+const tone = tones[(candidate.n - 1) % tones.length];
+---
+<article class="card">
+  <div class="card__avatar">
+    <div class="card__number">{candidate.n}</div>
+    {candidate.foto
+      ? <img class="card__photo" src={candidate.foto} alt={candidate.name} loading="lazy" />
+      : <Silhouette tone={tone} />
+    }
+  </div>
+  <div class="card__body">
+    <h4 class="card__name">{candidate.name}</h4>
+    <div class="card__spec">
+      {candidate.spec}
+      {showCity && candidate.city && (
+        <>
+          <span class="dot">·</span>
+          {candidate.city}
+        </>
+      )}
+    </div>
+  </div>
+</article>
