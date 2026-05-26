@@ -150,14 +150,14 @@ export const departamentos = [
 
 // ----- Consejo Superior — Integración Graduados (lista nacional) -----
 export const consejoSuperior = [
-  { n: 1,  name: "Ladino",         spec: "Ing. Naval",                                            city: "Buenos Aires" },
-  { n: 2,  name: "Sartor",         spec: "Ing. en Construcciones · Magíster en Gestión Ambiental", city: "Bahía Blanca" },
-  { n: 3,  name: "Molina",         spec: "Ing. Eléctrica",                                        city: "Tucumán" },
-  { n: 4,  name: "Zamboni",        spec: "Ing. Civil",                                            city: "Paraná" },
-  { n: 5,  name: "Liberal",        spec: "Sistemas de Información",                               city: "Mendoza" },
-  { n: 6,  name: "Gogniat",        spec: "Ing. Naval",                                            city: "Mar del Plata" },
-  { n: 7,  name: "Vallejos",       spec: "Ing. Industrial",                                       city: "Pacheco" },
-  { n: 8,  name: "Patricia López", spec: "Ing. en Construcciones",                                city: "Paraná" },
-  { n: 9,  name: "Iznardo",        spec: "Ing. en Sistemas",                                      city: "Resistencia" },
-  { n: 10, name: "Martínez",       spec: "Ing. Industrial",                                       city: "San Rafael" },
+  { n: 1,  name: "Ladino",         spec: "Ing. Naval",                                            city: "Buenos Aires",  foto: "/assets/fotos/superior-01.png" },
+  { n: 2,  name: "Sartor",         spec: "Ing. en Construcciones · Magíster en Gestión Ambiental", city: "Bahía Blanca", foto: "/assets/fotos/superior-02.png" },
+  { n: 3,  name: "Molina",         spec: "Ing. Eléctrica",                                        city: "Tucumán",       foto: "/assets/fotos/superior-03.png" },
+  { n: 4,  name: "Zamboni",        spec: "Ing. Civil",                                            city: "Paraná",        foto: "/assets/fotos/superior-04.png" },
+  { n: 5,  name: "Liberal",        spec: "Sistemas de Información",                               city: "Mendoza",       foto: "/assets/fotos/superior-05.png" },
+  { n: 6,  name: "Gogniat",        spec: "Ing. Naval",                                            city: "Mar del Plata", foto: "/assets/fotos/superior-06.png" },
+  { n: 7,  name: "Vallejos",       spec: "Ing. Industrial",                                       city: "Pacheco",       foto: "/assets/fotos/superior-07.png" },
+  { n: 8,  name: "Patricia López", spec: "Ing. en Construcciones",                                city: "Paraná",        foto: "/assets/fotos/superior-08.png" },
+  { n: 9,  name: "Iznardo",        spec: "Ing. en Sistemas",                                      city: "Resistencia",   foto: "/assets/fotos/superior-09.png" },
+  { n: 10, name: "Martínez",       spec: "Ing. Industrial",                                       city: "San Rafael",    foto: "/assets/fotos/superior-10.png" },
 ];
