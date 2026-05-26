@@ -76,8 +76,28 @@ import { consejoDirectivo } from "../data/campaign.js";
     </div>
   </section>
 
+  <!-- DEPARTAMENTALES -->
+  <section class="section section--cream" id="departamentales" data-screen-label="Consejos Departamentales">
+    <div class="section__inner">
+      <header class="section__head">
+        <div>
+          <div class="section__kicker">Consejos Departamentales</div>
+          <h2 class="section__title">
+            <span class="script">Tu</span> departamento
+          </h2>
+        </div>
+        <p class="section__lead">
+          Elegí tu carrera para conocer a los y las candidatas titulares y suplentes
+          que van a representar a graduados/as en el Consejo Departamental.
+        </p>
+      </header>
+
+      <DepartmentSelector />
+    </div>
+  </section>
+
   <!-- CONSEJO DIRECTIVO -->
-  <section class="section section--cream" id="directivo" data-screen-label="Consejo Directivo">
+  <section class="section" id="directivo" data-screen-label="Consejo Directivo">
     <div class="section__inner">
       <header class="section__head">
         <div>
@@ -97,26 +117,6 @@ import { consejoDirectivo } from "../data/campaign.js";
           <img class="photo-grid__img" src={c.foto} alt={c.name} loading="lazy" />
         ))}
       </div>
-    </div>
-  </section>
-
-  <!-- DEPARTAMENTALES -->
-  <section class="section" id="departamentales" data-screen-label="Consejos Departamentales">
-    <div class="section__inner">
-      <header class="section__head">
-        <div>
-          <div class="section__kicker">Consejos Departamentales</div>
-          <h2 class="section__title">
-            <span class="script">Tu</span> departamento
-          </h2>
-        </div>
-        <p class="section__lead">
-          Elegí tu carrera para conocer a los y las candidatas titulares y suplentes
-          que van a representar a graduados/as en el Consejo Departamental.
-        </p>
-      </header>
-
-      <DepartmentSelector />
     </div>
   </section>
 
