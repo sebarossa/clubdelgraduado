@@ -124,23 +124,28 @@ export const departamentos = [
 
   dept("mecanica", "Ingeniería Mecánica", "Mecánica",
     ["Fernando Ariel Vidal", "Ayelén Daiana Merodo"],
-    ["Ioannis Manuel Rubio", "Sergio Daniel Salomone"]),
+    ["Ioannis Manuel Rubio", "Sergio Daniel Salomone"],
+    ["/assets/fotos/mecanica-01.jpg", "/assets/fotos/mecanica-02.jpg", "/assets/fotos/mecanica-03.jpg", "/assets/fotos/mecanica-04.jpg"]),
 
   dept("naval", "Ingeniería Naval", "Naval",
     ["Juan Pablo Governatori", "Raúl Mario Ramis"],
-    ["Lucas Nahuel Garcia", "Fernando Raúl Ladino"]),
+    ["Lucas Nahuel Garcia", "Fernando Raúl Ladino"],
+    ["/assets/fotos/naval-01.jpg", "/assets/fotos/naval-02.jpg", "/assets/fotos/naval-03.jpg", "/assets/fotos/naval-04.jpg"]),
 
   dept("quimica", "Ingeniería Química", "Química",
     ["Rosa María Sánchez", "María Eugenia Valenzuela"],
-    ["Gabriela Fabiana Miguelez", "Marcela Sandra De Luca"]),
+    ["Gabriela Fabiana Miguelez", "Marcela Sandra De Luca"],
+    ["/assets/fotos/quimica-01.jpg", "/assets/fotos/quimica-02.jpg", "/assets/fotos/quimica-03.jpg", "/assets/fotos/quimica-04.jpg"]),
 
   dept("sistemas", "Ingeniería en Sistemas de Información", "Sistemas",
     ["Paula Romina Franzo", "Juan José D'Alessandro"],
-    ["Silvina Laura Gonzalez Lucas", "Marcos Alberto Della Pittima"]),
+    ["Silvina Laura Gonzalez Lucas", "Marcos Alberto Della Pittima"],
+    ["/assets/fotos/sistemas-01.jpg", "/assets/fotos/sistemas-02.jpg", "/assets/fotos/sistemas-03.jpg", "/assets/fotos/sistemas-04.jpg"]),
 
   dept("textil", "Ingeniería Textil", "Textil",
     ["Gonzalo Tomás Pulka", "Soledad Elena Conde Chuquimia"],
-    ["Esteban Emmanuel Agostinelli", "Valentina Celeste Dieleke"]),
+    ["Esteban Emmanuel Agostinelli", "Valentina Celeste Dieleke"],
+    ["/assets/fotos/textil-01.jpg", "/assets/fotos/textil-02.jpg", "/assets/fotos/textil-03.jpg", "/assets/fotos/textil-04.jpg"]),
 
   dept("basicas", "Ciencias Básicas", "C. Básicas",
     ["Andrea Carina Mangone", "Jorge Eduardo Podesta"],
